@@ -2,6 +2,8 @@
 target/
 *.class
 
+src\main\resources\application.properties
+
 # Log file
 *.log
 
@@ -37,5 +39,3 @@ hs_err_pid*
 local.settings.json
 bin/
 obj/
-
-src/main/resources/application.properties
