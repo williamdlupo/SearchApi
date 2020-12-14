@@ -60,6 +60,7 @@ public class BuildIndex
             Document document = new Document();
             document.add(new StoredField ("id", tweet.getTweetId()));
             document.add(new TextField("author", tweet.getAuthor(), Field.Store.YES));
+            document.add(new TextField("text", tweet.getText(), Field.Store.YES));
             document.add(new TextField("searchText", tweet.getSearchableText(), Field.Store.YES));
             indexWriter.addDocument(document);
         }

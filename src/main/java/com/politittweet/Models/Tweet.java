@@ -6,6 +6,7 @@ public class Tweet
     String Author;
     String Text;
     String SearchableText;
+    float Score;
     
     public Tweet(int tweetId, String author, String text)
     {
@@ -49,4 +50,15 @@ public class Tweet
     {
         return SearchableText;
     }
+    
+    public float getScore()
+    {
+        return Score;
+    }
+    
+    public void setScore(float score)
+    {
+        Score = score;
+    }
+    
 }

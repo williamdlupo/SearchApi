@@ -88,11 +88,13 @@ public class SearchEntry
         Query query = queryParser.parse(parsedQuery);
         TopDocs searchResults = searcher.search(query, 20);
     
-        Map<Integer, Float> results = new HashMap<>();
+        List<Tweet> results = new ArrayList<>();
         for(ScoreDoc scoreDoc: searchResults.scoreDocs)
         {
             Document resultDoc = indexReader.document(scoreDoc.doc);
-            results.put(Integer.valueOf(resultDoc.get("id")), scoreDoc.score);
+            Tweet tweet = new Tweet(Integer.parseInt(resultDoc.get("id")), resultDoc.get("author"), resultDoc.get("text"));
+            tweet.setScore(scoreDoc.score);
+            results.add(tweet);
         }
         
         return request.createResponseBuilder(HttpStatus.OK)
